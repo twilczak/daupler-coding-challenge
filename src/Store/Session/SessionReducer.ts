@@ -6,6 +6,7 @@ const LOGIN_FAILURE = 'Session/LoginFailure';
 const LOGOUT_PENDING = 'Session/LogoutPending';
 const LOGOUT_SUCCESS = 'Session/LogoutSuccess';
 const LOGOUT_FAILURE = 'Session/LogoutFailure';
+
 /*
 // Action Creators
 const LoginPending = (userName: string, password: string) =>

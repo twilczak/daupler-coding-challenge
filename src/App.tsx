@@ -17,9 +17,9 @@ function App() {
           <Router history={history}>
             <div className="App">
               <Switch>
+                  <Route exact path="/" render={() => <Redirect to="/login"/>}/>
                   <Route path="/login" component={Login}/>
                   <Route path="/eventLog" component={EventLog}/>
-                  <Route path="/" render={() => <Redirect to="/login"/>}/>
               </Switch>
             </div>
           </Router>
