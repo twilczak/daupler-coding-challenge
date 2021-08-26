@@ -1,4 +1,5 @@
 import * as data from "../../data/spa_mock_data.json";
+import {SessionState} from "./Session.types";
 
 //Action Types
 const LOGIN_PENDING = 'Session/LoginPending';
@@ -39,13 +40,6 @@ export const login = (userName: string, password:string ) => (dispatch: any) => 
 }
 
 // State
-type User = {id: number, name: string};
-export interface SessionState {
-    user: User | null;
-    loading: boolean;
-    error: any;
-}
-
 const initialState: SessionState = {
     user: null,
     loading: false,

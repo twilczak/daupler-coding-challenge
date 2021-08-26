@@ -6,8 +6,10 @@ import {createBrowserHistory} from 'history';
 import Store from './Store/Store';
 import EventLog from "./EventLog/EventLog";
 import Login from "./Login/Login";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 import './App.css';
+
 
 const history = createBrowserHistory();
 
@@ -18,8 +20,12 @@ function App() {
             <div className="App">
               <Switch>
                   <Route exact path="/" render={() => <Redirect to="/login"/>}/>
-                  <Route path="/login" component={Login}/>
-                  <Route path="/eventLog" component={EventLog}/>
+                  <Route path="/login" >
+                      <Login/>
+                  </Route>
+                  <ProtectedRoute path="/eventLog">
+                      <EventLog/>
+                  </ProtectedRoute>
               </Switch>
             </div>
           </Router>
