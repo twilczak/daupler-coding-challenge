@@ -22,4 +22,6 @@
 
 .LoginForm-error {
     color: darkred;
+    text-align: left;
+    height: 18px;
 }
