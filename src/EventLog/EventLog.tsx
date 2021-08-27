@@ -10,9 +10,9 @@ function EventLog(): React.ReactElement {
 
     const eventTableProps = useSelector((state:RootState) => {
         const userName = state.session.user ? state.session.user.name : null;
-        const {log, error, loading} = state.eventLog;
+        const {log, loading} = state.eventLog;
 
-        return {userName, log, error, loading};
+        return {userName, log, loading};
     });
 
     useEffect(() => {

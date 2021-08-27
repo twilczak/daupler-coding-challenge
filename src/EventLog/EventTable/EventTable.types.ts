@@ -4,5 +4,4 @@ export interface EventTableProps {
     userName: string | null;
     log: LoggedEvent[] | null
     loading: boolean;
-    error: any;
 }

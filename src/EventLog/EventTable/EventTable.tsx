@@ -4,7 +4,7 @@ import {LoggedEvent} from "../../Store/EventLog/EventLog.types";
 
 import "./EventTable.css";
 
-const EventTable = ({userName, log, loading, error}: EventTableProps): React.ReactElement => {
+const EventTable = ({userName, log, loading}: EventTableProps): React.ReactElement => {
 
     const renderTableRow = (event: LoggedEvent, index: number) => (
         <tr key={index}>
@@ -18,18 +18,18 @@ const EventTable = ({userName, log, loading, error}: EventTableProps): React.Rea
 
     return <>
         <div className="EventFilters">
-            <div>
+            <span>
                 <label className="EventFilters-label" htmlFor="filter-events-by-id">
                     Filter by issue id:
                 </label>
-                <input className="EventFilters-input" id="filter-events-by-id"/>
-            </div>
-            <div>
-                <input className="EventFilters-checkbox" type="checkbox" id="filter-events-by-user"/>
+                <input className="EventFilters-input" id="filter-events-by-id" disabled={loading}/>
+            </span>
+            <span>
+                <input className="EventFilters-checkbox" type="checkbox" id="filter-events-by-user" disabled={loading}/>
                 <label className="EventFilters-Label" htmlFor="filter-events-by-user">
                     Display events for current user ({userName})
                 </label>
-            </div>
+            </span>
         </div>
         <div className="EventTable">
             <table className="EventTable-table">

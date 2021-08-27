@@ -1,7 +1,7 @@
 .EventTable {
     overflow-y: auto;
     max-width: 750px;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .EventTable-table {
@@ -27,10 +27,18 @@
     background-color: inherit;
     width: 750px;
     display: inline-flex;
-    flex-direction: column;
     align-items: flex-start;
+    padding: 9px 0;
+    justify-content: space-between;
 }
 
+
 .EventFilters-label {}
-.EventFilters-input {}
-.EventFilters-checkbox {}
+
+.EventFilters-input {
+    margin-left: 5px;
+}
+
+.EventFilters-checkbox {
+    margin-right: 5px;
+}
