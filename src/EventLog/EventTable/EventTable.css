@@ -21,4 +21,16 @@
     background-color: #161b2221;
 }
 
-.EventTable-header {}
+.EventFilters {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    width: 750px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.EventFilters-label {}
+.EventFilters-input {}
+.EventFilters-checkbox {}

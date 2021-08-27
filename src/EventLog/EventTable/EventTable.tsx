@@ -16,12 +16,24 @@ const EventTable = ({userName, log, loading, error}: EventTableProps): React.Rea
         </tr>
     );
 
-    return <div className="EventTable">
-        <div className="EventTable-header">
-
+    return <>
+        <div className="EventFilters">
+            <div>
+                <label className="EventFilters-label" htmlFor="filter-events-by-id">
+                    Filter by issue id:
+                </label>
+                <input className="EventFilters-input" id="filter-events-by-id"/>
+            </div>
+            <div>
+                <input className="EventFilters-checkbox" type="checkbox" id="filter-events-by-user"/>
+                <label className="EventFilters-Label" htmlFor="filter-events-by-user">
+                    Display events for current user ({userName})
+                </label>
+            </div>
         </div>
-        <table className="EventTable-table">
-            <thead>
+        <div className="EventTable">
+            <table className="EventTable-table">
+                <thead>
                 <tr>
                     <th>Division</th>
                     <th>Issue ID</th>
@@ -29,12 +41,13 @@ const EventTable = ({userName, log, loading, error}: EventTableProps): React.Rea
                     <th>Time</th>
                     <th>User</th>
                 </tr>
-            </thead>
-            <tbody>
-            {log && log.map(renderTableRow)}
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                {log && log.map(renderTableRow)}
+                </tbody>
+            </table>
+        </div>
+    </>
 }
 
 export default EventTable;
