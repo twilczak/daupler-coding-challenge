@@ -3,9 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk";
 
 import session from './Session/SessionReducer';
+import eventLog from "./EventLog/EventLogReducer";
 
-// TODO: add eventLog reducer
-const reducers = combineReducers({session});
+const reducers = combineReducers({session, eventLog});
 const initialState = {};
 
 const middleware = [thunk];

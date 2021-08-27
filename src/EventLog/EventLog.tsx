@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from "react-redux";
 
-import './EventLog.css';
+import {fetchLog} from "../Store/EventLog/EventLogReducer";
+import EventTable from "./EventTable/EventTable";
 
 function EventLog(): React.ReactElement {
-    return (
-        <div className="EventLog">
-            Event Log
-        </div>
-    );
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchLog());
+    }, [dispatch]);
+
+    return <EventTable/>;
 }
 
 export default EventLog;
