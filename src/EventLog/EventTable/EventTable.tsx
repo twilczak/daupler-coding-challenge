@@ -6,6 +6,28 @@ import "./EventTable.css";
 
 const EventTable = ({userName, log, loading}: EventTableProps): React.ReactElement => {
 
+    const [issueIdFilter, setIssueIdFilter] = React.useState('');
+    const [filterByUser, setFilterByUser] = React.useState(false);
+    const [filteredIssues, setFilteredIssues] = React.useState(log);
+
+    React.useEffect(() => {
+        if(log) {
+            if(filterByUser || !!issueIdFilter) {
+                setFilteredIssues(log.filter((event) => {
+                    if(filterByUser && !issueIdFilter) {
+                        return event.user === userName;
+                    } else if(issueIdFilter && !filterByUser) {
+                        return event.issue_id.toString(10) === issueIdFilter;
+                    } else {
+                        return event.issue_id.toString(10) === issueIdFilter &&  event.user === userName;
+                    }
+                }));
+            } else {
+                setFilteredIssues(log);
+            }
+        }
+    }, [filterByUser, issueIdFilter, log, userName]);
+
     const renderTableRow = (event: LoggedEvent, index: number) => (
         <tr key={index}>
             <td>{event.division}</td>
@@ -19,14 +41,25 @@ const EventTable = ({userName, log, loading}: EventTableProps): React.ReactEleme
     return <>
         <div className="EventFilters">
             <span>
-                <label className="EventFilters-label" htmlFor="filter-events-by-id">
+                <label className="EventFilters-label"
+                       htmlFor="filter-events-by-id">
                     Filter by issue id:
                 </label>
-                <input className="EventFilters-input" id="filter-events-by-id" disabled={loading}/>
+                <input className="EventFilters-input"
+                       id="filter-events-by-id"
+                       value={issueIdFilter}
+                       onChange={(event) => setIssueIdFilter(event.target.value)}
+                       disabled={loading}/>
             </span>
             <span>
-                <input className="EventFilters-checkbox" type="checkbox" id="filter-events-by-user" disabled={loading}/>
-                <label className="EventFilters-Label" htmlFor="filter-events-by-user">
+                <input className="EventFilters-checkbox"
+                       type="checkbox"
+                       id="filter-events-by-user"
+                       checked={filterByUser}
+                       onChange={() => setFilterByUser(!filterByUser)}
+                       disabled={loading}/>
+                <label className="EventFilters-Label"
+                       htmlFor="filter-events-by-user">
                     Display events for current user ({userName})
                 </label>
             </span>
@@ -43,7 +76,7 @@ const EventTable = ({userName, log, loading}: EventTableProps): React.ReactEleme
                 </tr>
                 </thead>
                 <tbody>
-                {log && log.map(renderTableRow)}
+                {filteredIssues && filteredIssues.map(renderTableRow)}
                 </tbody>
             </table>
         </div>
