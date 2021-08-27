@@ -1,7 +1,24 @@
 .EventTable {
     overflow-y: auto;
+    max-width: 750px;
+    margin: 20px auto;
 }
 
-.EventTable-table {}
+.EventTable-table {
+    width: 100%;
+    border-spacing: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+.EventTable-table tr th,
+.EventTable-table tr td {
+    padding: 6px 13px;
+    border: 1px solid #30363d;
+}
+
+.EventTable-table tbody tr:nth-child(2n) {
+    background-color: #161b2221;
+}
 
 .EventTable-header {}
