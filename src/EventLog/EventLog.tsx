@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {fetchLog} from "../Store/EventLog/EventLogReducer";
@@ -22,7 +22,7 @@ function EventLog(): React.ReactElement {
 
     const [issueIdFilter, setIssueIdFilter] = React.useState('');
     const [filterByUser, setFilterByUser] = React.useState(false);
-    const [filteredIssues, setFilteredIssues] = React.useState(eventLogState.log);
+    const [filteredIssues, setFilteredIssues] = React.useState(log);
 
     React.useEffect(() => {
         if(log) {
@@ -42,7 +42,7 @@ function EventLog(): React.ReactElement {
         }
     }, [filterByUser, issueIdFilter, userName, log, loading]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         dispatch(fetchLog());
     }, [dispatch]);
 

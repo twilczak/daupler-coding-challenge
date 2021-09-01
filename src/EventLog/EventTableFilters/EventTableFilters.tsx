@@ -3,14 +3,13 @@ import {EventTableFiltersProps} from "./EventTableFilters.types";
 
 import './EventTableFilters.css';
 
-const EventTableFilters = ({
+const EventTableFilters = React.memo(({
   loading, issueIdFilter, filterByUser, userName, updateFilterByUser, updateIssueIdFilter
 }: EventTableFiltersProps): React.ReactElement => {
     return (
         <div className="EventTableFilters">
             <span>
-                <label className="EventTableFilters-label"
-                       htmlFor="filter-events-by-id">
+                <label htmlFor="filter-events-by-id">
                     Filter by issue id:
                 </label>
                 <input className="EventTableFilters-input"
@@ -26,13 +25,12 @@ const EventTableFilters = ({
                        checked={filterByUser}
                        onChange={() => updateFilterByUser(!filterByUser)}
                        disabled={loading}/>
-                <label className="EventTableFilters-Label"
-                       htmlFor="filter-events-by-user">
+                <label htmlFor="filter-events-by-user">
                     Display events for current user ({userName})
                 </label>
             </span>
         </div>
     );
-}
+});
 
-export default React.memo(EventTableFilters);
+export default EventTableFilters;
