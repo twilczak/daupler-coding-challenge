@@ -20,26 +20,3 @@
 .EventTable-table tbody tr:nth-child(2n) {
     background-color: #161b2221;
 }
-
-.EventFilters {
-    position: sticky;
-    top: 0;
-    background-color: inherit;
-    width: 750px;
-    display: inline-flex;
-    align-items: flex-start;
-    padding: 9px 0;
-    justify-content: space-between;
-    box-shadow: 0 4px 2px -2px gray;
-}
-
-
-.EventFilters-label {}
-
-.EventFilters-input {
-    margin-left: 5px;
-}
-
-.EventFilters-checkbox {
-    margin-right: 5px;
-}

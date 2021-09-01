@@ -1,0 +1,22 @@
+.EventTableFilters {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    width: 750px;
+    display: inline-flex;
+    align-items: flex-start;
+    padding: 9px 0;
+    justify-content: space-between;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+
+.EventTableFilters-label {}
+
+.EventTableFilters-input {
+    margin-left: 5px;
+}
+
+.EventTableFilters-checkbox {
+    margin-right: 5px;
+}
